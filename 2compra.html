@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmação de Compra - Acro Mec</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        header {
+            background-color: #4CAF50;
+            padding: 20px;
+            color: white;
+            text-align: center;
+        }
+        header img {
+            max-height: 50px;
+            vertical-align: middle;
+        }
+        header h1 {
+            display: inline;
+            font-size: 24px;
+            margin-left: 10px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        .order-summary, .customer-info {
+            margin-bottom: 20px;
+        }
+        .order-summary h2, .customer-info h2 {
+            margin-top: 0;
+        }
+        .order-summary table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .order-summary th, .order-summary td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .order-summary th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .total {
+            text-align: right;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+        .customer-info form {
+            display: flex;
+            flex-direction: column;
+        }
+        .customer-info label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .customer-info input {
+            margin-bottom: 15px;
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+        .button {
+            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+        .confirm {
+            background-color: #4CAF50;
+        }
+        .confirm:hover {
+            background-color: #45a049;
+        }
+        .cancel {
+            background-color: #f44336;
+        }
+        .cancel:hover {
+            background-color: #da190b;
+        }
+    </style>
+</head>
+<body>
+    <header>
+
+        <h1>Confirmação de Compra</h1>
+    </header>
+    <div class="container">
+        <div class="order-summary">
+            <h2>Resumo do Pedido</h2>
+            <table>
+                <tr>
+                    <th>Produto</th>
+                    <th>Preço Unitário</th>
+                    <th>Quantidade</th>
+                    <th>Total</th>
+                </tr>
+                <tr>
+                    <td>Planta 1</td>
+                    <td>R$ 20,00</td>
+                    <td id="quantity">2</td>
+                    <td id="total">R$ 60,00</td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="total"><strong>Total Geral</strong></td>
+                    <td id="grand-total">R$ 60,00</td>
+                </tr>
+            </table>
+        </div>
+        <div class="customer-info">
+            <h2>Informações do Comprador</h2>
+            <form id="purchaseForm">
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="address">Endereço:</label>
+                <input type="text" id="address" name="address" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">Telefone:</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <label for="quantity-input">Quantidade:</label>
+                <input type="number" id="quantity-input" name="quantity" min="1" value="2" required>
+            </form>
+        </div>
+        <div class="buttons">
+            <a href="2CompraPlan.html" class="button confirm" onclick="confirmPurchase()">Confirmar Compra</a>
+            <a href="1InicioPlan.html" class="button cancel" onclick="cancelPurchase()">Cancelar</a>
+        </div>
+    </div>
+    <script>
+        function updateTotal() {
+            const unitPrice = 30.00; // Preço atualizado para R$ 30,00
+            const quantity = document.getElementById('quantity-input').value;
+            const total = unitPrice * quantity;
+            document.getElementById('quantity').innerText = quantity;
+            document.getElementById('total').innerText = 'R$ ' + total.toFixed(2);
+            document.getElementById('grand-total').innerText = 'R$ ' + total.toFixed(2);
+        }
+
+        document.getElementById('quantity-input').addEventListener('input', updateTotal);
+
+        function confirmPurchase() {
+            const form = document.getElementById('purchaseForm');
+            if (form.checkValidity()) {
+                alert('Compra confirmada! Obrigado por comprar com a Acro Mec.');
+                window.location.href = 'pagina-confirmacao.html'; // Redireciona para a página de confirmação
+            } else {
+                alert('Por favor, preencha todas as informações obrigatórias.');
+            }
+        }
+
+        function cancelPurchase() {
+            if (confirm('Tem certeza que deseja cancelar a compra?')) {
+                alert('Compra cancelada.');
+                window.location.href = 'pagina-cancelamento.html'; // Redireciona para a página de cancelamento
+            }
+        }
+
+        // Atualiza o total inicialmente
+        updateTotal();
+    </script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acro Mec - Plantas</title>
+    <style>
+        @keyframes grow {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        body {
+            font-family: 'Courier New', Courier, monospace, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        header {
+            background-color: #4CAF50;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            color: white;
+            animation: grow 1s ease-in-out;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .product {
+            flex: 1 1 calc(25% - 20px);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            border-radius: 5px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            animation: grow 1s ease-in-out;
+        }
+        .product:hover {
+            transform: scale(1.05);
+        }
+        .product img {
+            width: 100%;
+            height: auto;
+        }
+        .product-details {
+            padding: 10px;
+        }
+        .product-title {
+            font-size: 18px;
+            margin: 0 0 10px 0;
+        }
+        .product-price {
+            color: #00a650;
+            font-size: 16px;
+            margin: 0;
+        }
+        .buy-button {
+            display: block;
+            text-align: center;
+            padding: 10px;
+            background-color: #1e9b39;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 0 0 0;
+            transition: background-color 0.3s;
+        }
+        .buy-button:hover {
+            background-color: #25d415;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        footer a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        footer a:hover {
+            color: #51ff00;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Acro Mec - Plantas</h1>
+    </header>
+    <div class="container">
+        <div class="product-list">
+            <div class="product">
+                <img src="planta04.jpg" width="900x900" alt="Imagem da Planta 1"><!-- Coloque a imagem da planta 1 aqui -->
+                <div class="product-details">
+                    <h2 class="product-title">Planta 1</h2>
+                    <p class="product-price">R$ 25,00</p>
+                    <a href="compra.html" class="buy-button">Comprar</a>
+                </div>
+            </div>
+            <div class="product">
+                <img src="planta01.jpg" width="900x900" alt="Imagem da Planta 2"><!-- Coloque a imagem da planta 2 aqui -->
+                <div class="product-details">
+                    <h2 class="product-title">Tulipa negra</h2>
+                    <p class="product-price">R$ 30,00</p>
+                    <a href="2compra.html" class="buy-button">Comprar</a>
+                </div>
+            </div>
+            <div class="product">
+                <img src="planta03.jpg" alt="Imagem da Planta 3"><!-- Coloque a imagem da planta 3 aqui -->
+                <div class="product-details">
+                    <h2 class="product-title">Graptoveria Titubans</h2>
+                    <p class="product-price">R$ 20,00</p>
+                    <a href="3compra.html" class="buy-button">Comprar</a>
+                </div>
+            </div>
+            <div class="product">
+                <img src="planta02.jpg" width="500x500" alt="Imagem da Planta 4"><!-- Coloque a imagem da planta 4 aqui -->
+                <div class="product-details">
+                    <h2 class="product-title">Bonzai</h2>
+                    <p class="product-price">R$ 40,00</p>
+                    <a href="4compra.html" class="buy-button">Comprar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <a href="1InicioPlan.html">Início</a>
+        <a href="2CompraPlan.html">Compras</a>
+        <a href="3PatrocPlan.html">Parceria</a>
+    </footer>
+</body>
+</html>
